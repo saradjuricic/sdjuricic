@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-body text-center">
                     <i class="fas fa-check-circle fa-5x text-success mb-4"></i>
-                    <h1 class="text-success">Order Placed Successfully!</h1>
+                    <h1 class="text-success">Order Submitted Successfully!</h1>
                     <p class="lead">Thank you for your order. We'll process it shortly.</p>
                     
                     <div class="alert alert-info">
