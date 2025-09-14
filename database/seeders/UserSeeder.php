@@ -12,21 +12,21 @@ class UserSeeder extends Seeder
     {
         User::create([
             'name' => 'Regular User',
-            'email' => 'user@pwa.rs',
+            'email' => 'user@raf.rs',
             'password' => Hash::make('user'),
             'role' => 'user'
         ]);
 
         User::create([
             'name' => 'Editor',
-            'email' => 'editor@pwa.rs',
+            'email' => 'editor@raf.rs',
             'password' => Hash::make('editor'),
             'role' => 'editor'
         ]);
 
         User::create([
             'name' => 'Administrator',
-            'email' => 'admin@pwa.rs',
+            'email' => 'admin@raf.rs',
             'password' => Hash::make('admin'),
             'role' => 'admin'
         ]);
