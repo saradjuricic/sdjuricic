@@ -1,0 +1,66 @@
+models:
+  User:
+    name: string
+    email: string unique
+    password: string
+    role: enum:user,editor,admin default:user
+    email_verified_at: timestamp nullable
+    relationships:
+      hasMany: Order
+
+  Category:
+    name: string unique
+    description: text nullable
+    relationships:
+      hasMany: Product
+
+  Product:
+    name: string
+    description: text
+    price: decimal:8,2
+    image: string nullable
+    featured: boolean default:false
+    stock: integer default:0
+    category_id: id foreign
+    relationships:
+      belongsTo: Category
+      hasMany: OrderItem
+
+  Order:
+    user_id: id foreign
+    total: decimal:8,2
+    status: enum:pending,processing,shipped,delivered default:pending
+    relationships:
+      belongsTo: User
+      hasMany: OrderItem
+
+  OrderItem:
+    order_id: id foreign
+    product_id: id foreign
+    quantity: integer
+    price: decimal:8,2
+    relationships:
+      belongsTo: Order, Product
+
+controllers:
+  CategoryController:
+    resource: api
+    model: Category
+
+  ProductController:
+    resource: api
+    model: Product
+
+  OrderController:
+    resource: api
+    model: Order
+
+  UserController:
+    resource: api
+    model: User
+
+seeders:
+  - CategorySeeder
+  - ProductSeeder  
+  - UserSeeder
+  - OrderSeeder
